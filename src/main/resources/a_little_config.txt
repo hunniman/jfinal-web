@@ -1,0 +1,4 @@
+jdbcUrl = jdbc:mysql://112.74.183.67:5000/authority?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = admin
+password =a9R3K3Dy37rRyOjELOqR
+devMode = true
