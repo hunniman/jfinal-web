@@ -16,15 +16,8 @@
 
     <link rel="stylesheet" href="<%request.getContextPath();%>/resources/css/dashboard.css"/>
 
-    <script type="text/javascript">
-        var data = {
-            title: '标签',
-            list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
-        };
-        var html = template('test', data);
-        document.getElementById('content').innerHTML = html;
-        alert(html);
-    </script>
+    <script src="<%request.getContextPath();%>/resources/pagejs/utils.js"></script>
+    <script src="<%request.getContextPath();%>/resources/pagejs/resources.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -61,150 +54,50 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Dashboard</h1>
-            sfsdfdsfsdf
+
             <div id="content"></div>
+
             <div class="row placeholders">
                 <script id="test" type="text/html">
-                    <h1>{{title}}</h1>
-                    <ul>
-                        {{each list as value i}}
-                        <li>索引 {{i + 1}} ：{{value}}</li>
-                        {{/each}}
+                    <h1>{{data.totalRow}}</h1>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>resource_id</th>
+                                <th>resource_name</th>
+                                <th>resource_type</th>
+                                <th>resource_string</th>
+                                <th>resource_desc</th>
+                                <th>enabled</th>
+                                <th>resource_method</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{each data.list as value i}}
+                                <tr>
+                                      <td>{{value.resource_string}}</td>
+                                      <td>{{value.resource_name}}</td>
+                                      <td>{{value.resource_type}}</td>
+                                      <td>{{value.resource_string}}</td>
+                                      <td>{{value.resource_desc}}</td>
+                                      <td>{{value.enabled}}</td>
+                                      <td>{{value.resource_method}}</td>
+                                      <td><a href="#">修改</a>&nbsp;<a href="#">删除</a> </td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    <ul class="pagination pull-right">
+                        <%--<li class="disabled"><a href="javascript:void(0);"> &laquo;</a></li>
+                            {{each data.totalRow as h j}}
+                                <li><a href="javascript:void(0);">j</a></li>
+                                <li><a href="javascript:void(0);"> 2</a></li>
+                                <li><a href="javascript:void(0);">3</a></li>
+                            {{/each}}
+                        <li><a href="javascript:void(0);"> &raquo;</a></li>--%>
                     </ul>
                 </script>
-            </div>
-
-
-
-
-
-            <h2 class="sub-header">Section title</h2>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>libero</td>
-                        <td>Sed</td>
-                        <td>cursus</td>
-                        <td>ante</td>
-                    </tr>
-                    <tr>
-                        <td>1,004</td>
-                        <td>dapibus</td>
-                        <td>diam</td>
-                        <td>Sed</td>
-                        <td>nisi</td>
-                    </tr>
-                    <tr>
-                        <td>1,005</td>
-                        <td>Nulla</td>
-                        <td>quis</td>
-                        <td>sem</td>
-                        <td>at</td>
-                    </tr>
-                    <tr>
-                        <td>1,006</td>
-                        <td>nibh</td>
-                        <td>elementum</td>
-                        <td>imperdiet</td>
-                        <td>Duis</td>
-                    </tr>
-                    <tr>
-                        <td>1,007</td>
-                        <td>sagittis</td>
-                        <td>ipsum</td>
-                        <td>Praesent</td>
-                        <td>mauris</td>
-                    </tr>
-                    <tr>
-                        <td>1,008</td>
-                        <td>Fusce</td>
-                        <td>nec</td>
-                        <td>tellus</td>
-                        <td>sed</td>
-                    </tr>
-                    <tr>
-                        <td>1,009</td>
-                        <td>augue</td>
-                        <td>semper</td>
-                        <td>porta</td>
-                        <td>Mauris</td>
-                    </tr>
-                    <tr>
-                        <td>1,010</td>
-                        <td>massa</td>
-                        <td>Vestibulum</td>
-                        <td>lacinia</td>
-                        <td>arcu</td>
-                    </tr>
-                    <tr>
-                        <td>1,011</td>
-                        <td>eget</td>
-                        <td>nulla</td>
-                        <td>Class</td>
-                        <td>aptent</td>
-                    </tr>
-                    <tr>
-                        <td>1,012</td>
-                        <td>taciti</td>
-                        <td>sociosqu</td>
-                        <td>ad</td>
-                        <td>litora</td>
-                    </tr>
-                    <tr>
-                        <td>1,013</td>
-                        <td>torquent</td>
-                        <td>per</td>
-                        <td>conubia</td>
-                        <td>nostra</td>
-                    </tr>
-                    <tr>
-                        <td>1,014</td>
-                        <td>per</td>
-                        <td>inceptos</td>
-                        <td>himenaeos</td>
-                        <td>Curabitur</td>
-                    </tr>
-                    <tr>
-                        <td>1,015</td>
-                        <td>sodales</td>
-                        <td>ligula</td>
-                        <td>in</td>
-                        <td>libero</td>
-                    </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

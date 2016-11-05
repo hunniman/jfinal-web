@@ -1,8 +1,12 @@
 package com.joker.index;
 
+import com.jfinal.aop.Before;
+import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.ext.interceptor.GET;
 import com.jfinal.plugin.activerecord.Page;
 import com.joker.common.model.Resources;
+import com.joker.common.other.ResponseModel;
 
 /**
  * IndexController
@@ -17,10 +21,16 @@ public class IndexController extends Controller {
         teacher1.forEach(s->{
             System.err.print(s.getId()+":"+s.getName());
         });*/
-
-        Page<Resources> paginate = Resources.dao.paginate(1, 30);
-        setAttr("resources", paginate);
         render("index.jsp");
+    }
+
+    @Before(GET.class)
+    @ActionKey("resources")
+    public void getResourceData() {
+        int pageNumber = getParaToInt("pageNumber", 1);
+        int pageSize = getParaToInt("pageSize", 10);
+        Page<Resources> paginate = Resources.dao.paginate(pageNumber, pageSize);
+        renderJson(ResponseModel.buildSuccess(paginate));
     }
 }
 
