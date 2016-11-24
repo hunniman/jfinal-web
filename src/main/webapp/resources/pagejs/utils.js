@@ -41,14 +41,14 @@ function generatePageing(total, callBack) {
     }
     for (var i = 1; i <= total; i++) {
         if(i==1){
-            conent += "<li><a href=\"javascript:void(0);\" class='active'>" + i + "</a></li>";
+            conent += "<li><a href=\"javascript:void(0); class='active' onClick=next('"+i+"')>" + i + "</a></li>";
         }else
-            conent += "<li><a href=\"javascript:void(0);\">" + i + "</a></li>";
+            conent += "<li><a href=\"javascript:void(0); onClick=next('"+i+"')>" + i + "</a></li>";
     }
     conent += "<li><a href=\"javascript:void(0);\" onclick=''>&raquo;</a></li>";
     $(conent).appendTo($(".pagination"));
 }
 
 function next(number) {
-
+    alert(number);
 }

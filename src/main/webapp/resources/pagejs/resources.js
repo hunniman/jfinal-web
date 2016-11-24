@@ -27,7 +27,7 @@ var resource=function () {
                     toastr.success('操作成功');
                     _self.generateTable(data)
                     var content= generatePageing(data.data.totalRow,null);
-                    alert(content);
+                    //alert(content);
                 }else{
                     toastr.error('操作失败');
                 }

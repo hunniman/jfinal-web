@@ -72,6 +72,24 @@
             <version>5.1.35</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.8</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-jsp -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-jsp</artifactId>
+            <version>8.1.8.v20121106</version>
+            <scope>compile</scope>
+        </dependency>
+
+
 
     </dependencies>
     <build>
