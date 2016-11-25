@@ -7,6 +7,7 @@ import com.jfinal.ext.interceptor.GET;
 import com.jfinal.plugin.activerecord.Page;
 import com.joker.common.model.Resources;
 import com.joker.common.other.ResponseModel;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * IndexController
@@ -27,9 +28,11 @@ public class IndexController extends Controller {
     @Before(GET.class)
     @ActionKey("resources")
     public void getResourceData() {
-        int pageNumber = getParaToInt("pageNumber", 1);
+        int pageNumber = getParaToInt("pageNum", 1);
         int pageSize = getParaToInt("pageSize", 10);
-        Page<Resources> paginate = Resources.dao.paginate(pageNumber, pageSize);
+        String searchData=getPara("searchData");
+
+        Page<Resources> paginate = Resources.dao.paginate(pageNumber, pageSize,searchData);
         renderJson(ResponseModel.buildSuccess(paginate));
     }
 }
