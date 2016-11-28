@@ -7,12 +7,43 @@ var menu=function () {
     _self.initEvent=function () {
         $(".nav-sidebar li").bind("click",function () {
             var url=$(this).attr("url");
-            $("#mainContent").load(url);
+            $("#loadingDiv").show();
+            $("#mainContent").load(url,function() {
+                $("#loadingDiv").fadeOut();
+            });
         });
     }
 }
 var mu;
+
 $(document).ready(function () {
     mu=new menu();
     mu.initEvent();
 });
+
+
+function AJAX(url,data,methodType,callback) {
+    $.ajax({
+        type: methodType,
+        dataType: "json",
+        url: url,
+        data: data,
+        beforeSend:function () {
+           if(methodType==="get"||methodType==="GET"){
+               $("#loadingDiv").show();
+           }
+        },
+        success: function(data) {
+            if(data.code===0){
+                callback(data);
+            }else{
+                toastr.error('操作失败');
+            }
+        },
+        error: function(err) {
+            toastr.error('操作失败');
+        }
+    }).done(function () {
+        $("#loadingDiv").fadeOut();
+    });
+}

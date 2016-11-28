@@ -32,7 +32,8 @@ var resource=function () {
     }
     
     _self.getData=function (url,data,callback) {
-        $.ajax({
+        AJAX(url,data,"get",callback);
+/*        $.ajax({
             type: "get",
             dataType: "json",
             url: url,
@@ -47,16 +48,20 @@ var resource=function () {
             error: function(err) {
                 toastr.error('操作失败');
             }
-        });
+        });*/
     }
     
     _self.loadResourceData=function (pageNum,pageSize) {
         var data={"pageNum":pageNum,"pageSize":pageSize,"searchData":$("#searchFile").val()};
-        _self.getData("resources",data,function (d) {
-            toastr.success('操作成功');
+        AJAX("resources",data,"get",function (d) {
             _self.generateTable(d)
             paging.init(d.data.totalRow, res.tableCallback,true);
         });
+        /*_self.getData("resources",data,function (d) {
+            toastr.success('操作成功');
+            _self.generateTable(d)
+            paging.init(d.data.totalRow, res.tableCallback,true);
+        });*/
        /* $.ajax({
             type: "get",
             dataType: "json",

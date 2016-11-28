@@ -14,11 +14,6 @@
 </head>
 <body>
 <!-- 内容部分-->
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <jsp:include page="../common/leftmenu.jsp"></jsp:include>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">后台授权url</h1>
                 <div class="form-group">
                     <div class="col-sm-2">
@@ -70,8 +65,6 @@
 
                 </ul>
             </div>
-        </div>
-    </div>
 <!-- 内容部分结束-->
 </body>
 </html>

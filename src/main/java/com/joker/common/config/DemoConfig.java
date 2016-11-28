@@ -15,6 +15,7 @@ import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.render.ViewType;
 import com.joker.common.model._MappingKit;
 import com.joker.index.IndexController;
+import com.joker.resource.ResourceController;
 
 /**
  * API引导式配置
@@ -36,6 +37,8 @@ public class DemoConfig extends JFinalConfig {
 	 */
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class, "/index");	// 第三个参数为该Controller的视图存放路径
+		me.add("/resource", ResourceController.class, "/resource");
+		///me.add("/adv", IndexController.class, "/adv");
 		///me.add("/blog", BlogController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
 	}
 	
