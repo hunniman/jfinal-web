@@ -22,6 +22,7 @@ public class IndexController extends Controller {
         teacher1.forEach(s->{
             System.err.print(s.getId()+":"+s.getName());
         });*/
+        setAttr("ddd",3333);
         render("index.jsp");
     }
 

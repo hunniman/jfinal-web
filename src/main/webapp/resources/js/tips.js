@@ -3,7 +3,6 @@ $(function () {
     var reg = new RegExp("\\[([^\\[\\]]*?)\\]", 'igm');
     var alr = $("#ycf-alert");
     var ahtml = alr.html();
-
     //关闭时恢复 modal html 原样，供下次调用时 replace 用
     //var _init = function () {
     //	alr.on("hidden.bs.modal", function (e) {
@@ -56,7 +55,6 @@ $(function () {
       $.extend(ops, options);
 
       console.log(alr);
-
       var html = alr.html().replace(reg, function (node, key) {
         return {
           Title: ops.title,

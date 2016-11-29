@@ -10,6 +10,4 @@
 <script src="<%request.getContextPath();%>/resources/toastr/toastr.js"></script>
 
 
-<script src="<%request.getContextPath();%>/resources/js/tips.js"></script>
-
 <script src="<%request.getContextPath();%>/resources/js/template.js"></script>

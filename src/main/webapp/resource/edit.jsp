@@ -6,42 +6,65 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@page isELIgnored="false"%>
 <html>
 <head>
     <title>Title</title>
-    <jsp:include page="../common/css.jsp"></jsp:include>
-    <jsp:include page="../common/js.jsp"></jsp:include>
-    <jsp:include page="../common/loading.jsp"></jsp:include>
-    <jsp:include page="../common/validator.jsp"></jsp:include>
-
-    <link rel="stylesheet" href="<%request.getContextPath();%>/resources/css/dashboard.css"/>
-
-    <script src="<%request.getContextPath();%>/resources/pagejs/utils.js"></script>
+    <script src="<%request.getContextPath();%>/resources/pagejs/resourcesEdit.js"></script>
 </head>
 <body>
+    <h1 class="page-header">后台授权url编辑</h1>
     <form id="roleForm" class="form-horizontal">
-        <input id="id" type="hidden" name="id" value="${role.id}">
-
+        <input id="id" type="hidden" name="resource_id" value="${resource.get("resource_id")}">
         <div class="form-group">
-            <label class="col-sm-2 control-label">角色名字</label>
+            <label class="col-sm-2 control-label">resource_name</label>
             <div class="col-sm-10">
-                <input class="form-control"  type="text" name="roleName" placeholder="请输入角色名字..." value="${role.roleName}">
+                <input class="form-control"  type="text" name="resource_name" placeholder="请输入resource_name..." value="${resource.get("resource_name")}">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">描述</label>
+            <label class="col-sm-2 control-label">resource_type</label>
             <div class="col-sm-10">
-                <input class="form-control"  type="text" name="description" placeholder="请输入描述..." value="${role.description}">
+                <input class="form-control"  type="text" name="resource_type" placeholder="请输入resource_type..." value="${resource.get("resource_type")}">
             </div>
         </div>
 
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">权限</label>
+            <label class="col-sm-2 control-label">resource_string</label>
             <div class="col-sm-10">
-                <input class="form-control"  type="text" name="permissionStr" placeholder="请输入权限..." value="${role.permissionStr}">
+                <input class="form-control"  type="text" name="resource_string" placeholder="请输入resource_string..." value="${resource.get("resource_string")}">
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">resource_desc</label>
+            <div class="col-sm-10">
+                <input class="form-control"  type="text" name="resource_desc" placeholder="请输入resource_desc..." value="${resource.get("resource_desc")}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">enabled</label>
+            <div class="col-sm-10">
+                <div class="checkbox">
+                    <label >
+                        <input type="checkbox"  name="enabled" <c:if test="${resource.get('enabled')==1}"> checked="checked"</c:if> />
+                    </label>
+                </div>
+
+              <%--  <input class="form-control"  type="text" name="enabled" placeholder="请输入resource_desc..." value="${resource.get("enabled")}">--%>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">resource_method</label>
+            <div class="col-sm-10">
+                <input class="form-control"  type="text" name="resource_method" placeholder="请输入resource_method..." value="${resource.get("resource_method")}">
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="col-sm-10">

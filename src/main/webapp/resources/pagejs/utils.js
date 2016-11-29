@@ -14,7 +14,7 @@ var paging = function () {
             return;
         }
         _self.total = total;
-        _self.totalPage = parseInt(total / defaultLength);
+        _self.totalPage = parseInt(total / defaultLength)+1;
         var initPageLength=defaultLength;
         if(_self.totalPage<initPageLength){
             initPageLength=_self.totalPage;

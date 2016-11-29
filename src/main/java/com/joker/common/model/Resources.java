@@ -14,9 +14,9 @@ public class Resources extends BaseResources<Resources> {
     public Page<Resources> paginate(int pageNumber, int pageSize, String searchData) {
         if (!StringUtils.isBlank(searchData)) {
             searchData='%'+searchData+'%';
-            return paginate(pageNumber, pageSize, "select *", "from resources where resource_string like ? order by resource_id asc", searchData);
+            return paginate(pageNumber, pageSize, "select *", "from resources where resource_string like ? order by  resource_id desc", searchData);
         } else {
-            return paginate(pageNumber, pageSize, "select *", "from resources where 1=1 order by resource_id asc");
+            return paginate(pageNumber, pageSize, "select *", "from resources where 1=1 order by resource_id desc");
         }
     }
 }

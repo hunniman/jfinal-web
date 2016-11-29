@@ -30,10 +30,10 @@ public class ResponseModel {
         return responseModel;
     }
 
-    public static ResponseModel buildError() {
+    public static ResponseModel buildError(String msg) {
         ResponseModel responseModel = new ResponseModel();
         responseModel.code = CodeMsgEnum.ERROR.getCode();
-        responseModel.msg = CodeMsgEnum.ERROR.getMsg();
+        responseModel.msg = msg==null?CodeMsgEnum.ERROR.getMsg():msg;
         return responseModel;
     }
 }

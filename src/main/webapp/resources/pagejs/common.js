@@ -13,6 +13,14 @@ var menu=function () {
             });
         });
     }
+    _self.loadPage=function (url,data) {
+        $("#loadingDiv").show();
+        $("#mainContent").load(url,data,function() {
+            $("#loadingDiv").fadeOut();
+        });
+    }
+
+
 }
 var mu;
 
@@ -47,3 +55,4 @@ function AJAX(url,data,methodType,callback) {
         $("#loadingDiv").fadeOut();
     });
 }
+
