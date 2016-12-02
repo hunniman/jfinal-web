@@ -41,15 +41,14 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>resource_id</th>
-                <th>resource_name</th>
-                <th>resource_type</th>
-                <th>resource_string</th>
-                <th>resource_desc</th>
-                <th>enabled</th>
-                <th>resource_method</th>
-                <th>create_time</th>
-                <th width="100px;">操作</th>
+                <th >id</th>
+                <th>名称</th>
+                <th>类型</th>
+                <th>url</th>
+                <th>描述</th>
+                <th>启用</th>
+                <th>方法</th>
+                <th width="100px;" >操作</th>
             </tr>
             </thead>
             <tbody>
@@ -62,7 +61,7 @@
                 <td>{{value.resource_desc}}</td>
                 <td>{{value.enabled}}</td>
                 <td>{{value.resource_method}}</td>
-                <td>{{value.create_time}}</td>
+               <%-- <td>{{value.create_time}}</td>--%>
                 <td><a href="#" onclick="res.update({{value.resource_id}})">修改</a>&nbsp;
                     <a href="#" onclick="res.delete({{value.resource_id}})">删除</a></td>
             </tr>

@@ -7,6 +7,8 @@ var menu=function () {
     _self.initEvent=function () {
         $(".nav-sidebar li").bind("click",function () {
             var url=$(this).attr("url");
+            $(".nav-sidebar li").removeAttr("class");
+            $(this).attr("class","active");
             $("#loadingDiv").show();
             $("#mainContent").load(url,function() {
                 $("#loadingDiv").fadeOut();

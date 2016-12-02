@@ -36,7 +36,7 @@
         </div>--%>
         <div class="row">
             <div class="col-sm-6">
-                <a class="navbar-brand" href="#">Project name</a>
+                <a class="navbar-brand" href="#">大气候后端管理-测试环境</a>
             </div>
             <div class="col-sm-2 ">
                 <div id="loadingDiv" style="margin-top: 28px; background-color: #428bca;width: 80px;height:20px; text-align: center;display:none;">

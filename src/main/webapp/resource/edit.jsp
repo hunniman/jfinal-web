@@ -67,9 +67,9 @@
 
 
         <div class="form-group">
-            <div class="col-sm-10">
+            <div class="col-sm-8">
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <div style="text-align: right;">
 
                     <button id="btnBack" class="btn btn-primary ladda-button" data-style="expand-right" type="button">
